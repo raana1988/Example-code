@@ -1,0 +1,192 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="masterFarsi.master.cs" Inherits="PRojectCH.masterFarsi" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Chemix the chemical company</title>
+    <script type="text/javascript" src="js/vlb_engine/jquery.min.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="generator" content="SWiSHmax http://www.swishzone.com" />
+    <meta name="description" content="    شرکت شیمیایی CHEMIX (کمیکس) به عنوان  یک شرکت تولید  کننده   مواد شیمیایی، مواد اولیه در صنعت   شیمیایی  ساختمان   از  قبیل   پلی کربوکسیلات ،سدیم نفتا لین سولفونات  و لیگنو سولفونات  را با استاندارد های جهانی و قابل رقابت با شرکت های معتبر دنیا را تولید می کند.  این  امر  غرور  مهم  باعث بی نیازی  بخش عظیمی  از  تولید  کنندگان  صنعت  افزودنی بتن به مواد  اولیه  وارداتی  را میسر  نموده است" />
+    <meta name="keywords" content="chemical, chemix, company, department, rmp, ugc,کمیکس , UGC DEPARTMENT,FOAM for EPB ,RMP DEPARTMENT,Poly Carboxylic ,Poly Naphthalene Sulfonate ,Calcium Lignosulfonate,raw material producer ,پلی کربوکسیلات ,سدیم نفتا لین سولفونات  , لیگنو سولفونات  ,فوم های حفاری ,گریس های ماستیک ,HARD ROCK" />
+    <link rel="shortcut icon" href="http://www.chemixco.com" />
+    <meta name="author" content="Balutweb.com,UI:Ms.Alizadeh,BC:,PM:Nader Hatami,...." />
+    <link href="./chemixcoFiles/styles.css" type="text/css" rel="stylesheet" />
+    <link href="./chemixcoFiles.css" type="text/css" rel="stylesheet" />
+
+    <script type="text/javascript" async="" src="./chemixcoFiles/ga.js"></script>
+    <script type="text/javascript"></script>
+
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <!-- Slideshow -->
+    <style type="text/css">
+        #slide {
+            z-index: 0;
+        }
+       
+    </style>
+
+    <script type="text/javascript" src="chemixcoFiles\jquery.cycle.all.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $("#slide").cycle({
+                fx: 'fade',
+            });
+        });
+
+    </script>
+    <link rel="stylesheet" href="http://ifont.ir/apicode/38"/>
+    <!---->
+</head>
+<body id="home">
+
+    <form id="form1" runat="server">
+
+        <div>
+            <div id="container">
+                <!-- Start-end slideshow -->
+
+                <div id="slide">
+                    <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
+                        <ItemTemplate>
+                            <img src="<%#Eval("ImageUrl")%>" width="1052" height="212" alt="<%#Eval("ImageName")%>" />
+
+                        </ItemTemplate>
+                    </asp:Repeater>
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:chemixdbConnectionString1 %>" SelectCommand="SELECT [ImageName], [ImageUrl], [elanguage] FROM [tbl_ImageSlidShow] WHERE ([IsActive] = @IsActive) AND elanguage=2">
+                        <SelectParameters>
+                            <asp:Parameter DefaultValue="true" Name="IsActive" Type="Boolean" />
+                        </SelectParameters>
+                    </asp:SqlDataSource>
+                </div>
+            </div>
+            <div id="header-container">
+               <%-- <script type="text/javascript">
+                    $(function () {
+                        $("#flash").click(function () {
+                            $("#new").slideToggle();
+
+                        });
+                        $("#cc").click(function () {
+                            $("#new").slideUp();
+                        });
+
+                    });
+                </script>--%>
+               <%-- <div style="width: 100%;position: absolute; z-index: 100" >
+                    <div style="width: 100%; background: #035ca8; z-index: 100" id="new">
+                        <table style="width: 960px; padding-top: 44px; margin: auto; color: #ffffff">
+                            <tr>
+                                <td style="text-align: center">
+                                    <a href="#" id="cc">
+                                        <img src="logo/cedexandchemix.png" width="255" /></a>
+                                    <p style="font-family: tahoma; font-size: 13px; margin-top: -10px; text-align: center">ورود به سایت کمیکس</p>
+                                </td>
+                                <td style="text-align: center">
+                                    <a href="http://www.cedexco.com/">
+                                        <img src="logo/cedex.PNG" style="margin-bottom: -90px; width: 180px;" /></a>
+                                    <p style="font-family: tahoma; font-size: 13px; margin-top: 95px; text-align: center">ورود به سایت سیدکس</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div style="background: #035ca8; width: 30px; text-align: center; position: absolute; z-index: 120" id="flash">
+                        <img src="logo/plus-sign-r-hi.png" id="im" width="20" />
+                    </div>
+                </div>--%>
+
+                <!-- Start header -->
+                <div id="header">
+                    <!-- Start-end logo and lang -->
+                    <div id="logo">
+                        <a href="http://www.cedexco.com" target="_blank" title="Home">
+                            <img src="logo/LOGO-FINAL2.png" alt="cedexandchemix" /></a>
+                    </div>
+
+                    <!-- Start-end lang -->
+                    <div id="lang">
+                        <ul>
+                            <li><a href="EN/HomeEn.aspx" title="English">English</a></li>
+                            <li><a href="Homefarsi.aspx" title="Srpski">Persian</a></li>
+
+                        </ul>
+                    </div>
+
+                    <div id="social_media">
+                        <ul>
+                            <li><a href="www.facebook.com/chemixco" title="chemix Facebook" target="_blank">
+                                <img src="./chemixcoFiles/fb.png" width="20" height="21" alt="cedexandchemix" title="Facebook" /></a></li>
+                            <li><a href="#" title="chemix Linkedin" target="_blank">
+                                <img src="./chemixcoFiles/in.png" width="20" height="21" alt="cedexandchemix" title="Linkedin" /></a></li>
+                            <li><a href="#" title="Alubond Twitter" target="_blank">
+                                <img src="./chemixcoFiles/tw.png" width="20" height="21" alt="cedexandchemix" title="Twitter" /></a></li>
+                        </ul>
+                    </div>
+
+                    <div id="news_intranet">
+                        <ul>
+                            <li><a style="color: #650964; font-size: small" href="http://www.chemixco.com" title="Home">خانه</a></li>
+                            <li style="width:56px"><a href="contactusFarsi.aspx" title="contact" style="color: #ff6600; font-size: small">ارتباط با ما</a></li>
+                            <li style="width:100px;"><a href="#" title="site map" style="font-size: small">نقشه سایت</a></li>
+                        </ul>
+                    </div>
+
+                    <div id="home_baner_word">
+                       
+                        <object
+                            classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+                            codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,79,0"
+                            id="Moviefarsi"
+                            width="600" height="84">
+                            <param name="movie" value="Movie3.swf" />
+                            <param name="bgcolor" value="#FFFFFF" />
+                            <param name="quality" value="high" />
+                            <param name="allowscriptaccess" value="samedomain" />
+                            <embed
+                                type="application/x-shockwave-flash"
+                                pluginspage="http://www.macromedia.com/go/getflashplayer"
+                                name="Movie3"
+                                width="600" height="84"
+                                src="Movie3.swf"
+                                bgcolor="#FFFFFF"
+                                quality="high"
+                                swliveconnect="true"
+                                allowscriptaccess="samedomain" />
+
+                        </object>
+                    </div>
+
+                    <!-- Start navigation -->
+                    <div id="navigation">
+                        <ul>
+                            <li style="width:60px"><a href="contactusFarsi.aspx" title="Contactus">ارتباط با ما</a></li>
+                            <li style="width:65px"><a href="AboutFarsi.aspx" title="Aboutus">درباره ما</a></li>
+                            <li><a href="AlbumFarsi.aspx" title="Gallery">گالری</a></li>
+                            <li style="direction: rtl"><a href="http://www.chemix.ir/ImageFarsi.aspx?AlbumID=19" title="RMP">گواهینامه ها</a></li>
+                            <li style="direction: rtl"><a href="ugc_farsi.aspx" title="UGC">دپارتمان UGC</a></li>
+                            <li><a href="Homefarsi.aspx" title="Home">خانه</a></li>
+                        </ul>
+                    </div>
+                    <!-- End navigation -->
+                </div>
+                <!-- End header -->
+            </div>
+        </div>
+
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+        <!-- Start and end Footer -->
+        <div id="footer">
+            Copyright © 2013. <a href="http://www.chemixco.com" title="chemixCo">cedexandchemix</a> Developer <a href="http://www.balutweb.com" target="_blank" title="balutweb">BalutWeb</a>
+        </div>
+    </form>
+
+
+</body>
+</html>
+
